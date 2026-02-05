@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: hsl(0, 0%, 100%);
+  --secondary-color: hsl(0, 0%, 26%);
+  --bg-color: hsl(0, 0%, 72%);
+}
+
+[data-theme="dark"] {
+  --primary-color: hsl(0, 0%, 19%);
+  --secondary-color: hsl(0, 0%, 72%);
+  --bg-color: hsl(0, 0%, 26%);
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: "JetBrains Mono";
+}
+
+.container {
+  background-color: var(--primary-color);
+  max-width: 800px;
+  margin: 5rem auto;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  transition: color, 0.3s;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    box-shadow: 0 0 3px #888;
+    &:active {
+      transform: translateY(2px);
+      box-shadow: none;
+    }
+  }
+}
+
+#chart {
+  position: relative;
+
+  border-radius: 4px;
+
+  padding: 1rem;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.2);
+
+  /* // display: grid;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: repeat(2, 1fr); */
+}
+
+canvas {
+  border: 1px solid black;
+}
+
+.tg-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.tg-chart-tooltip {
+  position: absolute;
+  padding-block: 0.5rem;
+  border: 1px solid black;
+  background-color: #fff;
+  z-index: 2;
+  width: 8rem;
+}
+.tooltip-list-title {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.tooltip-list {
+  gap: 0.5rem;
+  padding-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  // justify-content: start;
+  align-items: flex-start;
+
+  list-style-type: none;
+}
+.tooltip-list-item {
+  // flex-grow: 1;
+  position: relative;
+  font-size: 0.8rem;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 7.9rem;
+    background-color: rgb(88, 88, 88);
+    bottom: 0;
+    left: -0.5rem;
+  }
+}
+
+.tg-chart-minimap {
+  position: relative;
+  margin-bottom: 1rem;
+  z-index: 1;
+
+  &__right,
+  &__left {
+    transition: background 0.22s ease-in-out;
+    background-color: var(--secondary-color);
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__left {
+    left: 0;
+  }
+
+  &__right {
+    right: 0;
+  }
+
+  &__arrow--left,
+  &__arrow--right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: background 0.22s ease-in-out;
+    background: #ddeaf3;
+    width: 4px;
+    display: grid;
+    place-content: center;
+  }
+
+  &__arrow--left {
+    right: 0;
+    cursor: w-resize;
+  }
+
+  &__arrow--right {
+    left: 0;
+    cursor: e-resize;
+  }
+
+  &__window {
+    position: absolute;
+    background: transparent;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.graph-checkboxs-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.page-title {
+  color: var(--secondary-color);
+}
+
+.links {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  gap: 1rem;
+  a {
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  #copyMailBtn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    background-color: var(--primary-color);
+    border: 1px solid gray;
+    padding-inline: 0.4rem;
+    font-size: 1.5rem;
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+}
+
+.toast {
+  position: fixed;
+
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  &-success {
+    background-color: rgb(101, 172, 68);
+    color: var(--primary-color);
+    border: 1px solid rgb(41, 72, 27);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 1rem;
+  }
+
+  &-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
