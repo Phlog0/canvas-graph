@@ -1,4 +1,4 @@
-import { DPI_HEIGHT, PADDING, VIEW_HEIGHT } from "../constants";
+import { DPI_HEIGHT, PADDING } from "../constants";
 
 /**
  *

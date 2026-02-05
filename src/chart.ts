@@ -81,7 +81,7 @@ export function chart(data: ReturnTypeGetChartData, activeColumns: string[]) {
     mouseMove(e, proxy);
   }
   function changeThemeWrapper() {
-    changeTheme(data, proxyTarget, tip);
+    changeTheme(proxyTarget);
     paint(data, proxyTarget, tip, activeColumns);
   }
   minimap.subscribe((pos: [number, number]) => {

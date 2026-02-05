@@ -1,7 +1,7 @@
 export function drawGraphCurve(
   ctx: CanvasRenderingContext2D,
   coords: [number, number][],
-  { color, translate }: { color: string; translate?: number },
+  { color }: { color: string; translate?: number },
 ) {
   ctx.beginPath();
   // ctx.save();

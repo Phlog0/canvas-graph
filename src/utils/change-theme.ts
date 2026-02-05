@@ -1,14 +1,7 @@
-import { paint } from "../canvas-utils";
-import type { ToolTipReturnType } from "../canvas-utils/tooltip";
-import type { ThemeColors, TProxyTarget } from "../chart";
-import type { ReturnTypeGetChartData } from "../get-chart-data";
+import type { TProxyTarget } from "../chart";
 import { initElements } from "../init-elements";
 
-export function changeTheme(
-  data: ReturnTypeGetChartData,
-  proxyTarget: TProxyTarget,
-  tip: ToolTipReturnType,
-) {
+export function changeTheme(proxyTarget: TProxyTarget) {
   const { mainGraphCanvas } = initElements();
 
   if (proxyTarget.themeColors.theme === "light") {

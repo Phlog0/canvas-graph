@@ -11,8 +11,7 @@ export function minimapChartMouseDown(
   // $right: HTMLDivElement,
   nextFn: (values: [number, number]) => void,
 ) {
-  const { minimapCanvas, minimapCanvasCtx, $left, $minimapWindow, $right } =
-    initElements();
+  const { $left, $minimapWindow, $right } = initElements();
   const dimensions = {
     left: parseInt($minimapWindow.style.left),
     right: parseInt($minimapWindow.style.right),

@@ -11,7 +11,7 @@ import {
 } from "./minimap-utils";
 import { getPosition } from "./minimap-utils/get-position";
 import { computeXRatio, computeYRatio, cssHelper, toCoords } from "./utils";
-export function noop(values: [number, number]) {}
+export function noop(_: [number, number]) {}
 
 export function minimapChart(
   root: HTMLDivElement,

@@ -3,6 +3,7 @@ import { type ReturnTypeGetChartData } from "./get-chart-data";
 import { updateCheckboxes } from "./graph-filter";
 import { initElements } from "./init-elements";
 import { loadData } from "./load-data";
+
 async function main() {
   const {
     nextChartBtn,
@@ -13,8 +14,7 @@ async function main() {
     toast,
   } = initElements();
   let chartIndex = 0;
-
-  const data: ReturnTypeGetChartData[] = await loadData();
+  const data: ReturnTypeGetChartData[] = loadData();
   currentGraphEl.textContent = `${chartIndex + 1} / ${data.length}`;
   let currentGraph = data[0];
   const allColumns = new Map<string, string>(
@@ -77,7 +77,7 @@ async function main() {
       activeColumns.delete(dataColumn);
     }
 
-    updateCheckboxes(allColumns, activeColumns, currentGraph, dataColumn);
+    updateCheckboxes(allColumns, activeColumns, currentGraph);
 
     tgChartSwitch = chart(currentGraph, [...activeColumns]);
   });

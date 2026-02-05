@@ -5,14 +5,13 @@ export function updateCheckboxes(
   allColumns: Map<string, string>,
   activeColumns: Set<string>,
   currentGraph: ReturnTypeGetChartData,
-  disabledDataColumn?: string,
 ) {
   const { graphCheckboxsContainer } = initElements();
   graphCheckboxsContainer.innerHTML = "";
   let template = "";
   console.log({ size: activeColumns.size });
 
-  for (const [key, value] of allColumns) {
+  for (const [key, _] of allColumns) {
     const isActiveColumn = activeColumns.has(key);
     template += `
             <input id="${currentGraph.names[key]}" 
@@ -32,9 +31,3 @@ export function updateCheckboxes(
 
   graphCheckboxsContainer.insertAdjacentHTML("beforeend", template);
 }
-
-export function initCheckboxes(
-  allColumns: Map<string, string>,
-  activeColumns: Set<string>,
-  currentGraph: ReturnTypeGetChartData,
-) {}

@@ -1,4 +1,3 @@
-import { DPI_RATIO } from "../constants";
 import { cssHelper } from "../utils";
 export type TooltipTemplateData = {
   title: string;

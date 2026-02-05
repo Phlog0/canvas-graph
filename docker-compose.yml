@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  dev:
+    build:
+      context: .
+      target: development
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./src:/app/src # Hot-reload для кода
+      - ./public:/app/public # Hot-reload для статики
+      - ./index.html:/app/index.html
+      - ./package.json:/app/package.json
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: bun run dev --host 0.0.0.0
+  prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

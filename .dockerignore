@@ -1,0 +1,26 @@
+# Игнорируем
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+bun.lockb
+
+# Игнорируем билд
+dist
+build
+
+# Игнорируем системные файлы
+.DS_Store
+Thumbs.db
+
+# Игнорируем IDE файлы
+.vscode
+.idea
+*.swp
+*.swo
+
+# Игнорируем env файлы (кроме примеров)
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

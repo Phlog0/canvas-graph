@@ -1,6 +1,6 @@
 import { VIEW_HEIGHT, VIEW_WIDTH } from "../constants";
 import type { ReturnTypeGetChartData } from "../get-chart-data";
-import type { ThemeColors, TProxyTarget } from "../chart";
+import type { TProxyTarget } from "../chart";
 import { computeXRatio, computeYRatio, toCoords, translateX } from "../utils";
 import { clearCanvas } from "./clear-canvas";
 import { computeBoundries } from "./compute-boundries";

@@ -3,7 +3,7 @@ import type { TProxyTarget } from "../chart";
 import type { ToolTipReturnType } from "../canvas-utils/tooltip";
 
 export function mouseMove(
-  { clientX, clientY, pageX, pageY, currentTarget }: MouseEvent,
+  { pageX, pageY, currentTarget }: MouseEvent,
   proxy: TProxyTarget,
 ) {
   // const clientY = event.clientY;
@@ -24,7 +24,6 @@ export function mouseMove(
   // };
   // console.log(LOG);
   const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
 
   const canvasX = (pageX - left) * DPI_RATIO;
   let finalLeft = pageX - left + 50;
